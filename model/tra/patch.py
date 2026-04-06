@@ -128,7 +128,6 @@ def patch_model_with_tra(
                     )
 
                 # Attention scores + TRA bias
-                # (B, H, T, T) = (B, H, T, d) @ (B, H, d, T)
                 scale = 1.0 / math.sqrt(head_dim)
                 attn_weights = torch.matmul(
                     query_states, key_states.transpose(2, 3)
@@ -168,11 +167,11 @@ def patch_model_with_tra(
                 )
                 attn_weights = attn_weights + bias
 
-                # Softmax + value projection
-                attn_weights = F.softmax(
-                    attn_weights, dim=-1, dtype=torch.float32
-                ).to(query_states.dtype)
-                attn_output = torch.matmul(attn_weights, value_states)
+                # Softmax (float32) + value projection (bf16)
+                attn_weights = F.softmax(attn_weights, dim=-1, dtype=torch.float32)
+                attn_output = torch.matmul(
+                    attn_weights.to(value_states.dtype), value_states
+                )
 
                 # Output projection
                 attn_output = attn_output.transpose(1, 2).contiguous()

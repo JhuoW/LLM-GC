@@ -420,6 +420,20 @@ def main():
 
             loss = l_task + args.lambda_repr * l_repr
 
+            # ── Skip NaN batches ─────────────────────────────────────
+            if torch.isnan(loss) or torch.isinf(loss):
+                print_rank_0(
+                    f"  [WARN] NaN/Inf at step {step}: "
+                    f"l_task={l_task.item()}, l_repr={l_repr.item()}, "
+                    f"input_ids range=[{batch['input_ids'].min()},{batch['input_ids'].max()}], "
+                    f"labels non-masked={int((batch['labels'] != -100).sum())}",
+                    args.global_rank,
+                )
+                model.zero_grad()
+                tra.clear_graph_data()
+                last_hidden_state.clear()
+                continue
+
             # ── Backward + Step (DeepSpeed handles accumulation) ─────
             model.backward(loss)
             model.step()
