@@ -1,0 +1,10 @@
+{
+  "graph_instruct_aug": {
+    "file_name": "../dataset/GraphInstruct-Aug/train.jsonl",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "query",
+      "response": "answer"
+    }
+  }
+}

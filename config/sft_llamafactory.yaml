@@ -1,0 +1,41 @@
+### Phase 1 SFT via LLaMA-Factory
+### Usage: llamafactory-cli train config/sft_llamafactory.yaml
+
+### Model
+model_name_or_path: meta-llama/Llama-3.1-8B-Instruct
+trust_remote_code: true
+
+### Method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target: q_proj,k_proj,v_proj,o_proj
+
+### Dataset
+dataset_dir: data
+dataset: graph_instruct_aug
+template: default
+cutoff_len: 2048
+preprocessing_num_workers: 8
+
+### Training
+output_dir: checkpoints/sft
+overwrite_output_dir: true
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 2
+learning_rate: 5.0e-6
+lr_scheduler_type: cosine
+warmup_steps: 500
+num_train_epochs: 2
+bf16: true
+gradient_checkpointing: true
+save_strategy: epoch
+seed: 1234
+
+### Logging
+logging_steps: 10
+report_to: wandb
+run_name: sft-llama3-8b-llamafactory

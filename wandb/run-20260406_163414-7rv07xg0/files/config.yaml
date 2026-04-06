@@ -1,0 +1,191 @@
+_wandb:
+    value:
+        cli_version: 0.23.1
+        e:
+            rm3ua7ogp2pegmpu6b1h3mumkf2ljpke:
+                args:
+                    - --local_rank=0
+                    - --model_name
+                    - meta-llama/Llama-3.1-8B-Instruct
+                    - --data_path
+                    - dataset/GraphInstruct-Aug/train.jsonl
+                    - --attn_implementation
+                    - flash_attention_2
+                    - --d_max
+                    - "1"
+                    - --lora_r
+                    - "16"
+                    - --lora_alpha
+                    - "32"
+                    - --lora_dropout
+                    - "0.05"
+                    - --lambda_repr
+                    - "0.1"
+                    - --k
+                    - "4"
+                    - --max_seq_len
+                    - "2048"
+                    - --per_device_train_batch_size
+                    - "5"
+                    - --gradient_accumulation_steps
+                    - "2"
+                    - --num_train_epochs
+                    - "2"
+                    - --learning_rate
+                    - "5e-6"
+                    - --lr_scheduler_type
+                    - cosine
+                    - --warmup_steps
+                    - "500"
+                    - --weight_decay
+                    - "0.0"
+                    - --gradient_checkpointing
+                    - --zero_stage
+                    - "2"
+                    - --seed
+                    - "1234"
+                    - --logging_steps
+                    - "10"
+                    - --save_per_epoch
+                    - --output_dir
+                    - checkpoints/sft-test
+                    - --wandb_project
+                    - llm-gc-sft
+                    - --wandb_run_name
+                    - sft-llama3-8b-tra
+                codePath: training/sft_train.py
+                codePathLocal: training/sft_train.py
+                cpu_count: 32
+                cpu_count_logical: 64
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "3726468792320"
+                        used: "2314957193216"
+                email: mario931077127@gmail.com
+                executable: /home/zhuowei/anaconda3/bin/python3.12
+                git:
+                    commit: e00a22b94a25aa018066ae738bcd1f69358abc6b
+                    remote: git@github.com:JhuoW/LLM-GC.git
+                gpu: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+                gpu_count: 3
+                gpu_nvidia:
+                    - architecture: Blackwell
+                      cudaCores: 24064
+                      memoryTotal: "102641958912"
+                      name: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+                      uuid: GPU-391c75fa-351e-33d4-7bf7-165ee977ff27
+                    - architecture: Blackwell
+                      cudaCores: 24064
+                      memoryTotal: "102641958912"
+                      name: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+                      uuid: GPU-652b9aaa-779c-3fea-f988-d765d96da524
+                    - architecture: Blackwell
+                      cudaCores: 24064
+                      memoryTotal: "102641958912"
+                      name: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+                      uuid: GPU-5090e9b2-86a9-0f2f-73ab-ce808aeb1aa8
+                host: SPRLS10A
+                memory:
+                    total: "810672553984"
+                os: Linux-6.17.0-14-generic-x86_64-with-glibc2.39
+                program: /home/zhuowei/My_Proj/LLM-GC/training/sft_train.py
+                python: CPython 3.12.12
+                root: /home/zhuowei/My_Proj/LLM-GC
+                startedAt: "2026-04-06T08:34:14.526121Z"
+                writerId: rm3ua7ogp2pegmpu6b1h3mumkf2ljpke
+        m: []
+        python_version: 3.12.12
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 53
+                - 71
+                - 98
+                - 105
+            "2":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 53
+                - 71
+                - 98
+                - 105
+            "3":
+                - 13
+                - 16
+            "4": 3.12.12
+            "5": 0.23.1
+            "6": 4.57.3
+            "12": 0.23.1
+            "13": linux-x86_64
+attn_implementation:
+    value: flash_attention_2
+d_max:
+    value: 1
+data_path:
+    value: dataset/GraphInstruct-Aug/train.jsonl
+deepscale:
+    value: false
+deepscale_config:
+    value: null
+deepspeed:
+    value: false
+deepspeed_config:
+    value: null
+global_rank:
+    value: 0
+gradient_accumulation_steps:
+    value: 2
+gradient_checkpointing:
+    value: true
+k:
+    value: 4
+lambda_repr:
+    value: 0.1
+learning_rate:
+    value: 5e-06
+local_rank:
+    value: 0
+logging_steps:
+    value: 10
+lora_alpha:
+    value: 32
+lora_dropout:
+    value: 0.05
+lora_r:
+    value: 16
+lr_scheduler_type:
+    value: cosine
+max_seq_len:
+    value: 2048
+model_name:
+    value: meta-llama/Llama-3.1-8B-Instruct
+num_train_epochs:
+    value: 2
+offload:
+    value: false
+output_dir:
+    value: checkpoints/sft-test
+per_device_train_batch_size:
+    value: 5
+save_per_epoch:
+    value: true
+seed:
+    value: 1234
+wandb_project:
+    value: llm-gc-sft
+wandb_run_name:
+    value: sft-llama3-8b-tra
+warmup_steps:
+    value: 500
+weight_decay:
+    value: 0
+zero_stage:
+    value: 2
