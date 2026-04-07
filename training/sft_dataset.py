@@ -163,7 +163,8 @@ class SFTCollator:
         prompts = [b["prompt"] for b in batch]
         responses = [b["response"] for b in batch]
         tasks = [b["task"] for b in batch]
-        full_texts = [p + r for p, r in zip(prompts, responses)]
+        eos = self.tokenizer.eos_token or ""
+        full_texts = [p + r + eos for p, r in zip(prompts, responses)]
 
         # ── Tokenize ─────────────────────────────────────────────────────
         enc = self.tokenizer(
