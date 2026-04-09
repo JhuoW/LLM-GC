@@ -421,12 +421,13 @@ def main():
             loss = l_task + args.lambda_repr * l_repr
 
             # ── Skip NaN batches ─────────────────────────────────────
+            # Safe for multi-GPU: all ranks process the same batch
+            # (GroupedBatchSampler is identical across ranks), so NaN
+            # occurs symmetrically — all ranks skip together.
             if torch.isnan(loss) or torch.isinf(loss):
                 print_rank_0(
                     f"  [WARN] NaN/Inf at step {step}: "
-                    f"l_task={l_task.item()}, l_repr={l_repr.item()}, "
-                    f"input_ids range=[{batch['input_ids'].min()},{batch['input_ids'].max()}], "
-                    f"labels non-masked={int((batch['labels'] != -100).sum())}",
+                    f"l_task={l_task.item()}, l_repr={l_repr.item()}",
                     args.global_rank,
                 )
                 model.zero_grad()

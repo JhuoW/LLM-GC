@@ -1,0 +1,14 @@
+{
+  "checkpoint_dir": "checkpoints/sft-merged",
+  "base_model": null,
+  "output_dir": "sft_results/Llama-3.1-8B-Instruct/all/20260407-183415",
+  "data_dir": null,
+  "batch_size": 4,
+  "max_new_tokens": 1024,
+  "attn_implementation": "flash_attention_2",
+  "tasks": null,
+  "backend": "vllm",
+  "tp": 1,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.9
+}

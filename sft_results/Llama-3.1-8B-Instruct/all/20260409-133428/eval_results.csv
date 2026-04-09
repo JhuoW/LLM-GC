@@ -1,0 +1,11 @@
+Task,Accuracy
+cycle,0.7350
+connectivity,0.7900
+bipartite,0.6600
+topology,0.3525
+shortest,0.1325
+triplet,0.3925
+flow,0.2275
+hamilton,0.5100
+substructure,0.5450
+Average,0.4828

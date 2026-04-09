@@ -1,0 +1,16 @@
+{
+  "checkpoint_dir": "checkpoints/sft_v2",
+  "base_model": null,
+  "output_dir": "sft_results/Llama-3.1-8B-Instruct/cycle/20260409-102745",
+  "data_dir": null,
+  "batch_size": 4,
+  "max_new_tokens": 1024,
+  "attn_implementation": "flash_attention_2",
+  "tasks": [
+    "cycle"
+  ],
+  "backend": "hf",
+  "tp": 1,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.9
+}

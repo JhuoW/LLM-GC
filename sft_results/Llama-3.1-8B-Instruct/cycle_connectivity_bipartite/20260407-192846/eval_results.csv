@@ -1,0 +1,5 @@
+Task,Accuracy
+cycle,0.7550
+connectivity,0.7825
+bipartite,0.6725
+Average,0.7367

@@ -1,0 +1,14 @@
+{
+  "per_task": {
+    "cycle": 0.735,
+    "connectivity": 0.79,
+    "bipartite": 0.66,
+    "topology": 0.3525,
+    "shortest": 0.1325,
+    "triplet": 0.3925,
+    "flow": 0.2275,
+    "hamilton": 0.51,
+    "substructure": 0.545
+  },
+  "average": 0.48277777777777775
+}

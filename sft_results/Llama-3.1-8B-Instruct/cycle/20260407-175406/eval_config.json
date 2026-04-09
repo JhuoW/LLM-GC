@@ -1,0 +1,12 @@
+{
+  "checkpoint_dir": "checkpoints/sft",
+  "base_model": null,
+  "output_dir": "sft_results/Llama-3.1-8B-Instruct/cycle/20260407-175406",
+  "data_dir": null,
+  "batch_size": 4,
+  "max_new_tokens": 1024,
+  "attn_implementation": "flash_attention_2",
+  "tasks": [
+    "cycle"
+  ]
+}

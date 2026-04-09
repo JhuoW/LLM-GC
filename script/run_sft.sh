@@ -4,10 +4,12 @@
 #
 # Usage:
 #   bash script/run_sft.sh [OUTPUT_DIR] [GPUS]
-
+# python script/merge_lora.py --checkpoint_dir checkpoints/sft_v2
+#  bash script/run_eval.sh checkpoints/sft_v2-merged cycle vllm 1  
+# bash script/run_eval.sh checkpoints/sft_v2-merged all vllm 1
 set -e
 
-OUTPUT_DIR=${1:-"checkpoints/sft"}
+OUTPUT_DIR=${1:-"checkpoints/sft_v2"}
 GPUS=${2:-"0,1,2"}
 
 # Kill stale processes on the master port
@@ -29,7 +31,7 @@ deepspeed --include "localhost:${GPUS}" \
     --max_seq_len 2048 \
     --per_device_train_batch_size 5 \
     --gradient_accumulation_steps 2 \
-    --num_train_epochs 2 \
+    --num_train_epochs 3 \
     --learning_rate 5e-6 \
     --lr_scheduler_type cosine \
     --warmup_steps 500 \

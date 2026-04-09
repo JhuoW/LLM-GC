@@ -1,0 +1,8 @@
+{
+  "per_task": {
+    "cycle": 0.755,
+    "connectivity": 0.7825,
+    "bipartite": 0.6725
+  },
+  "average": 0.7366666666666667
+}
